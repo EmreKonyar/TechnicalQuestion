@@ -7,6 +7,7 @@ import Colons from '../components/Colons';
 import { useNavigation } from '@react-navigation/native';
 import CheckBox from '../components/CheckBox';
 import Data from '../components/Data';
+import Colors from '../components/Colors';
 
 const UserScreen = () => {
 
@@ -27,7 +28,7 @@ const navigation = useNavigation();
     <View style={styles.top}>
       <TouchableOpacity onPress={()=>navigation.navigate('newUser')}>
           <View style={styles.newu}>
-              <Ionicons name='add-outline' size={20} color='#fff' />
+              <Ionicons name='add-outline' size={20} color={Colors.appColor2} />
               <Text style={styles.newuText}>New User</Text>
           </View>
       </TouchableOpacity>
@@ -53,12 +54,12 @@ const styles = StyleSheet.create({
     container:{
         alignItems: 'center',
         flex:1,
-        backgroundColor: '#fff'
+        backgroundColor: Colors.appColor2
     },
     top:{
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: Colors.appColor3,
         width: '100%',
     },
     newu:{
@@ -69,10 +70,10 @@ const styles = StyleSheet.create({
         marginHorizontal: 30,
         width: 100,
         height: 35,
-        backgroundColor: '#007cba',
+        backgroundColor: Colors.appColor1,
     },
     newuText:{
-        color: '#fff',
+        color: Colors.appColor2,
         fontWeight: 'bold',
     },
     colonsStyle:{

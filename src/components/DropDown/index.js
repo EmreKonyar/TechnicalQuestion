@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
+import Colors from '../Colors';
 
 const data = [
     { label: 'Guest', value: '1' },
@@ -61,9 +62,9 @@ const DropDown = (props) => {
       alignItems: 'center',
       margin: 16,
       height: 50,
-      backgroundColor: '#fff',
+      backgroundColor: Colors.appColor2,
       padding: 12,
-      borderColor: '#c0c0c0',
+      borderColor: Colors.appColor4,
       borderWidth: 1,
       width: 250,
     },

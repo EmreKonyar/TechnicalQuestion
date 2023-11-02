@@ -3,6 +3,7 @@ import React from 'react';
 import InputBox from '../components/InputBox';
 import DropDown from '../components/DropDown';
 import CheckBox from '../components/CheckBox';
+import Colors from '../components/Colors';
 
 const NewUserScreen = () => {
 
@@ -32,12 +33,12 @@ const styles = StyleSheet.create({
   container:{
     alignItems:'center',
     flex:1,
-    backgroundColor:'#fff',
+    backgroundColor:Colors.appColor2,
   },
   top:{
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: Colors.appColor3,
     width: '100%',
     justifyContent:'space-around',
     marginBottom: 20,
@@ -55,10 +56,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 30,
     width: 100,
     height: 35,
-    backgroundColor: '#007cba',
+    backgroundColor: Colors.appColor1,
   },
   buttonText:{
-    color: '#fff',
+    color: Colors.appColor2,
     fontWeight: 'bold',
   },
   bottom:{

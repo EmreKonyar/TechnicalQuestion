@@ -1,5 +1,6 @@
 import { View, Text, KeyboardAvoidingView, TextInput, StyleSheet, Platform } from 'react-native'
 import React from 'react'
+import Colors from '../Colors'
 
 const InputBox = (props) => {
   return (
@@ -33,8 +34,8 @@ const styles = StyleSheet.create({
     input:{
         paddingVertical: 5,
         paddingHorizontal: 15,
-        backgroundColor: '#fff',
-        borderColor: '#c0c0c0',
+        backgroundColor: Colors.appColor2,
+        borderColor: Colors.appColor4,
         borderWidth: 1,
         width: 250,
     }
