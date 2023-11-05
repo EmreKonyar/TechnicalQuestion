@@ -1,16 +1,17 @@
-import { View, Text, KeyboardAvoidingView, TextInput, StyleSheet, Platform } from 'react-native'
-import React from 'react'
-import Colors from '../Colors'
+import React from 'react';
+import { View, Text, KeyboardAvoidingView, TextInput, StyleSheet, Platform } from 'react-native';
+import Colors from '../Colors';
 
-const InputBox = (props) => {
+const InputBox = ({marginRight, text, data, setData}) => {
+  
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.texInput}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.texInput}
       >
-        <Text style={[styles.text, {marginRight: props.marginRight}]}>{props.text}</Text>
-        <TextInput style={styles.input}  />
+        <Text style={[styles.text, {marginRight: marginRight}]}>{text}</Text>
+        <TextInput style={styles.input} value={data} onChangeText={input => setData(input)} />
       </KeyboardAvoidingView>
     </View>
   )
@@ -21,7 +22,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 20,
-        
     },
     texInput:{
         flexDirection:'row',

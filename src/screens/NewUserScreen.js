@@ -1,29 +1,45 @@
-import { View, Text, StyleSheet, TouchableOpacity, Keyboard } from 'react-native';
-import React from 'react';
+import {React, useState} from 'react';
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import InputBox from '../components/InputBox';
 import DropDown from '../components/DropDown';
 import CheckBox from '../components/CheckBox';
 import Colors from '../components/Colors';
 
-const NewUserScreen = () => {
+const NewUserScreen = ({navigation}) => {
+
+  const [userStatus, setUserStatus] = useState(false)
+  const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState('');
+  const [displayName, setDisplayName] = useState('');
+  const [phone, setPhone] = useState('');
+
+  const saveUser = () => {
+    const newUser = { userName, email, displayName, phone, userStatus };
+    navigation.navigate('User', { newUser });
+    setUserName('');
+    setEmail('');
+    setDisplayName('');
+    setPhone('');
+    setUserStatus(false);
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.top}>
         <Text style={styles.topText}>New User</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={saveUser}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>Save User</Text>
           </View>
         </TouchableOpacity>
       </View>
       <View style={styles.bottom}>
-        <InputBox marginRight={44} text={'Username:'}/>
-        <InputBox marginRight={20} text={'Display Name:'} />
-        <InputBox marginRight={69} text={'Phone:'} />
-        <InputBox marginRight={74} text={'Email:'} />
+        <InputBox marginRight={44} text={'Username:'} data={userName} setData={setUserName} />
+        <InputBox marginRight={20} text={'Display Name:'} data={displayName} setData={setDisplayName} />
+        <InputBox marginRight={69} text={'Phone:'} data={phone} setData={setPhone} />
+        <InputBox marginRight={74} text={'Email:'} data={email} setData={setEmail}/>
         <DropDown marginRight={20} dropDownText={'User Roles:'}/>
-        <CheckBox marginRight={60} flexDirection={'row'} text={'Enabled:'}/>
+        <CheckBox marginRight={60} flexDirection={'row'} text={'Enabled:'} status={userStatus} setStatus={setUserStatus} />
       </View>
     </View>
   )
@@ -66,6 +82,6 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     
   },
-})
+});
 
 export default NewUserScreen;

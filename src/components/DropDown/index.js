@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { React, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Dropdown } from 'react-native-element-dropdown';
 import Colors from '../Colors';
@@ -12,7 +12,6 @@ const data = [
 const DropDown = (props) => {
     
     const [value, setValue] = useState(null);
-
     const renderItem = item => {
       return (
         <View style={styles.item}>
@@ -23,30 +22,29 @@ const DropDown = (props) => {
 
     return (
       <View style={styles.container}>
-      <Text style={[styles.text, {marginRight: props.marginRight}]}>{props.dropDownText}</Text>
-      <Dropdown
-        style={styles.dropdown}
-        placeholderStyle={styles.placeholderStyle}
-        selectedTextStyle={styles.selectedTextStyle}
-        inputSearchStyle={styles.inputSearchStyle}
-        iconStyle={styles.iconStyle}
-        data={data}
-        search
-        maxHeight={300}
-        labelField="label"
-        valueField="value"
-        placeholder="Select user roles..."
-        searchPlaceholder="Search..."
-        value={value}
-        onChange={item => {
-          setValue(item.value);
-        }}
-        renderItem={renderItem}
-      />
+        <Text style={[styles.text, {marginRight: props.marginRight}]}>{props.dropDownText}</Text>
+        <Dropdown
+          style={styles.dropdown}
+          placeholderStyle={styles.placeholderStyle}
+          selectedTextStyle={styles.selectedTextStyle}
+          inputSearchStyle={styles.inputSearchStyle}
+          iconStyle={styles.iconStyle}
+          data={data}
+          search
+          maxHeight={300}
+          labelField="label"
+          valueField="value"
+          placeholder="Select user roles..."
+          searchPlaceholder="Search..."
+          value={value}
+          onChange={item => {
+            setValue(item.value);
+          }}
+          renderItem={renderItem}
+        />
       </View>
     );
   };
-
 
   const styles = StyleSheet.create({
     container:{
@@ -96,4 +94,5 @@ const DropDown = (props) => {
       fontSize: 16,
     },
   });
+  
 export default DropDown;

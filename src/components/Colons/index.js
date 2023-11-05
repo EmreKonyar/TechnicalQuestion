@@ -3,7 +3,6 @@ import React from 'react'
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Colors from '../Colors';
 
-
 const Colons = (props) => {
   return (
     <View style={[styles.container, {width: props.width}]}>
@@ -28,6 +27,6 @@ const styles = StyleSheet.create({
         marginLeft:5,
         fontSize:12
     },
-})
+});
 
 export default Colons;
